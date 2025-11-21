@@ -22,7 +22,7 @@ bun install
 
 ```bash
 cp .env.sample .env
-# then edit .env and set DATABASE_URL and BACKEND_PORT
+# then edit .env and set DATABASE_URL
 ```
 
 - Apply Prisma migrations and generate client (Postgres must be available):
