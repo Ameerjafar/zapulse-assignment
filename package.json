@@ -1,0 +1,32 @@
+{
+  "name": "zapulse-assignment",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "bun run --watch index.ts",
+    "test": "bun jest"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/supertest": "^6.0.3",
+    "supertest": "^7.1.4",
+    "ts-jest": "^29.4.5"
+  },
+  "peerDependencies": {
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "@prisma/client": "6.17.1",
+    "zod": "^3.23.0",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.5",
+    "@types/jest": "^30.0.0",
+    "@types/pg": "^8.15.6",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "jest": "^30.2.0",
+    "prisma": "6.17.1"
+  }
+}
