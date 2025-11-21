@@ -100,7 +100,7 @@ There are two ways to provide a `DATABASE_URL` for this project — pick one:
 - Option A — Use your own database (recommended for production):
 	- Copy `.env.sample` to `.env` and set `DATABASE_URL` to your hosted Postgres connection string:
 		```
-		postgresql://USER:PASSWORD@HOST:PORT/DATABASE?schema=public
+		postgresql://USER:PASSWORD@HOST:PORT/DATABASE?schema=public"
 		```
 
 - Option B — Use the local Postgres container (recommended for local development):
@@ -108,9 +108,9 @@ There are two ways to provide a `DATABASE_URL` for this project — pick one:
 		```powershell
 		docker-compose up -d
 		```
-	- Then copy `.env.sample` to `.env` and uncomment or set the line that points to the local DB:
+	- Then copy `.env.sample` to `.env` copy the below link into the DATABASE_URL value
 		```
-		DATABASE_URL="postgresql://zapulse:zapulse_pwd@localhost:5432/zapulse_db?schema=public"
+		postgresql://zapulse:zapulse_pwd@localhost:5432/zapulse_db?schema=public
 		```
 	- Run Prisma migrations against the local DB:
 		```powershell
