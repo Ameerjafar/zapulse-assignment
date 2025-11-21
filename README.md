@@ -87,11 +87,36 @@ All endpoints return `500` on unexpected errors (there is a centralized error ha
 
 **Testing**
 
-- Run tests:
-
 ```bash
 bun run test
 ```
 
 - Tests live in `tests/` and use `supertest` to exercise the routes; `@prisma/client` is mocked in tests so the DB is not required for unit tests.
+
+**Database options**
+
+There are two ways to provide a `DATABASE_URL` for this project — pick one:
+
+- Option A — Use your own database (recommended for production):
+	- Copy `.env.sample` to `.env` and set `DATABASE_URL` to your hosted Postgres connection string:
+		```
+		postgresql://USER:PASSWORD@HOST:PORT/DATABASE?schema=public
+		```
+
+- Option B — Use the local Postgres container (recommended for local development):
+	- Start the database container included in the repo:
+		```powershell
+		docker-compose up -d
+		```
+	- Then copy `.env.sample` to `.env` and uncomment or set the line that points to the local DB:
+		```
+		DATABASE_URL="postgresql://zapulse:zapulse_pwd@localhost:5432/zapulse_db?schema=public"
+		```
+	- Run Prisma migrations against the local DB:
+		```powershell
+		npx prisma generate
+		npx prisma migrate dev --name init
+		```
+
+Only one `DATABASE_URL` should be active in `.env`. The project will fail fast on startup if `DATABASE_URL` is missing or invalid.
 
