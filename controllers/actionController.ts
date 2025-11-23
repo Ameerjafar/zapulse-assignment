@@ -86,6 +86,7 @@ export async function executeAction(
         | "put"
         | "delete",
       url: action.url,
+      headers: req.headers
     });
 
     await actionService.updateAction(id, { status: "SUCCESS" });
